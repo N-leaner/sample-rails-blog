@@ -1,21 +1,17 @@
-<h2>Контакты</h2>
-<p></p>
-<form action="/contacts" method="POST">
+<h1>Contact us</h1>
 
-<div>
-    <label>Ваш e-mail:</label>
-    <br>
-    <input name="email" type="email">
-</div>
+<%= form_for :contact, url: contacts_path do |f| %>
+	<p>
+		<%= f.label :email %> <br>
+		<%= f.text_field :email %>
+	</p>
 
-<br>
+	<p>
+		<%= f.label :message %> <br>
+		<%= f.text_area :message %>
+	</p>
 
-<div>
-  <label>Ваше сообщение:</label>
-  <br>
-  <textarea rows="10" cols="45" name="text"></textarea>
-</div>
-<br>
-<button type="submit" >Отправить сообщение</button>
-
-</form>
+	<p>
+		<%= f.submit 'Send message' %>
+	</p>
+<% end %>	
